@@ -8,14 +8,6 @@ use App\Services\UserPositionRankingService;
 class UserPositionRankingServiceTest extends TestCase
 {
 
-    public function test_should_set_position_to_object_from_array()
-    {
-        $sut = (new UserPositionRankingService($this->getRakingFake()))->execute();
-        $this->assertObjectHasAttribute('position', $sut[0]);
-        $this->assertEquals(10, $sut[0]->position);
-        $this->assertEquals(1, $sut[9]->position);
-    }
-
     private function getRakingFake(): array
     {
         $ranking = [];
@@ -30,4 +22,19 @@ class UserPositionRankingServiceTest extends TestCase
         }
         return $ranking;
     }
+
+    public function test_should_set_position_to_object_from_array()
+    {
+        $sut = (new UserPositionRankingService($this->getRakingFake()))->execute();
+        $this->assertObjectHasAttribute('position', $sut[0]);
+        $this->assertEquals(10, $sut[0]->position);
+        $this->assertEquals(1, $sut[9]->position);
+    }
+
+    public function test_should_return_array_empty_when_no_record_found()
+    {
+        $sut = (new UserPositionRankingService([]))->execute();
+        $this->assertEquals([], $sut);
+    }
+
 }
