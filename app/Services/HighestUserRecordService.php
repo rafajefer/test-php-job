@@ -17,7 +17,7 @@ class HighestUserRecordService
         $highestRecord = [];
         foreach ($this->ranking as $r) {
             if (array_key_exists($r->userId, $highestRecord)) {
-                if ($highestRecord[$r->userId]->record < $r->record) {
+                if ($this->isSmaller($highestRecord[$r->userId]->record, $r->record)) {
                     $highestRecord[$r->userId] = $r;
                 }
             } else {
@@ -25,5 +25,10 @@ class HighestUserRecordService
             }
         }
         return array_values($highestRecord);
+    }
+
+    private function isSmaller($a, $b): bool
+    {
+        return $a < $b;
     }
 }
