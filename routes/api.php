@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RankingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/ping', function () {
     return response('pong', 200);
 });
+
+Route::get('/ranking', [RankingController::class, 'get']);
