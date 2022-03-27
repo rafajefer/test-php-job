@@ -21,7 +21,7 @@ class MovementController extends Controller
 
         return response()->json([
             'message' => 'Ranking retrieved successfully!',
-            'data' => $ranking
-          ], Response::HTTP_OK);   
+            'data' => $ranking,
+        ], Response::HTTP_OK);   
     }
 }
