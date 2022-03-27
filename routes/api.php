@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\RankingController;
+use App\Http\Controllers\MovementController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +23,4 @@ Route::get('/ping', function () {
     return response('pong', 200);
 });
 
-Route::get('/ranking', [RankingController::class, 'get']);
+Route::get('/movement/{id}/ranking', [MovementController::class, 'getRanking']);
