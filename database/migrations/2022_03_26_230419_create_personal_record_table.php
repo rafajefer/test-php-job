@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('personal_record', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('movement_id')->constrained();
             $table->float('value');
+            $table->dateTime('date');
+            $table->timestamps();
 
             $table->engine = 'InnoDB';
         });
