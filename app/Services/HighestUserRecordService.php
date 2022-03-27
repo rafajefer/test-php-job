@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class HighestUserRecord
+class HighestUserRecordService
 {
     private array $ranking;
 

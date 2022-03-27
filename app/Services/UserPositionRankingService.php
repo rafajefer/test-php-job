@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class UserPositionRanking
+class UserPositionRankingService
 {
     private array $ranking;
 
@@ -29,7 +29,7 @@ class UserPositionRanking
 
     private function sortByRecord(array $array): array
     {
-        usort($array, fn($a, $b) => strcmp($b->record, $a->record));
+        usort($array, fn($a, $b) => $b->record > $a->record);
         return $array;
     }
 }

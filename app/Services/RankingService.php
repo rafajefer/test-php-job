@@ -16,7 +16,7 @@ class RankingService
     public function getRanking(int $movementId)
     {
         $ranking = $this->rankingRepository->getRanking($movementId);
-        $ranking = (new HighestUserRecord($ranking))->execute();
-        return (new UserPositionRanking($ranking))->execute();
+        $ranking = (new HighestUserRecordService($ranking))->execute();
+        return (new UserPositionRankingService($ranking))->execute();
     }
 }
