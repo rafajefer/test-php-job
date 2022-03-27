@@ -13,7 +13,7 @@ class PingRouteTest extends TestCase
      *
      * @return void
      */
-    public function test_should_return_text_with_message_pong()
+    public function test_the_application_returns_a_successful_with_message_pong()
     {
         $response = $this->get('/api/ping');
         
